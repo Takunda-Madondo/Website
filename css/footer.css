@@ -1,0 +1,78 @@
+/* ═══════════════════════════════════════════════
+   FOOTER — footer.css
+   ═══════════════════════════════════════════════ */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 1.85rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links button {
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.73rem;
+  font-weight: 400;
+  color: var(--text-3);
+  padding: 0;
+  transition: color 0.2s;
+}
+.footer-links button:hover { color: var(--text-2); }
+
+/* ── BACK TO TOP ── */
+#backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 800;
+  width: 42px;
+  height: 42px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.35);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), background 0.2s, box-shadow 0.2s;
+}
+
+#backToTop.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#backToTop:hover {
+  background: var(--accent-2);
+  box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.45);
+  transform: translateY(-2px);
+}
+#backToTop:active { transform: translateY(0); }

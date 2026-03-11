@@ -1,0 +1,102 @@
+/* ═══════════════════════════════════════════════
+   SKILLS — skills.css
+   ═══════════════════════════════════════════════ */
+
+.skills-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: end;
+}
+.skills-header .section-sub { margin-top: 0; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Card ── */
+.skill-card {
+  padding: 1.85rem 1.65rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: border-color 0.25s, transform 0.28s var(--ease-spring), box-shadow 0.28s;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.skill-card:hover {
+  border-color: var(--border-hi);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.skill-card:hover::before { opacity: 1; }
+
+.skill-icon {
+  font-size: 1.55rem;
+  margin-bottom: 1.1rem;
+  display: block;
+}
+
+.skill-cat {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+
+.skill-items { display: flex; flex-direction: column; gap: 0.85rem; }
+
+.skill-row { display: flex; flex-direction: column; gap: 0.32rem; }
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.skill-name {
+  font-size: 0.8rem;
+  color: var(--text-2);
+  font-weight: 400;
+}
+
+.skill-lvl {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-3);
+}
+
+.bar-track {
+  height: 3px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #4f8ef7 0%, #7c3aed 100%);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-theme="light"] .bar-fill {
+  background: linear-gradient(90deg, #1e5fc2 0%, #5b21b6 100%);
+}
+.bar-fill.in { transform: scaleX(1); }
